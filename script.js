@@ -2,7 +2,7 @@ let city_name = "";
 
 // Fetching lan and lon
 let fetchlanlon = async () => {
-  let response = await fetch("http://ip-api.com/json/");
+  let response = await fetch("https://ipapi.co/json/");
   let data = await response.json();
   return data;
 };
