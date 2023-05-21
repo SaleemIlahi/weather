@@ -17,7 +17,7 @@ let fetchWeather = async (city) => {
 
 // Fetching AQI data
 let fetchAQI = async (lat, lon) => {
-  urlAqi = `http://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=e4f7cbf93edc85aa1ad13aa4d20f312e`;
+  urlAqi = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=e4f7cbf93edc85aa1ad13aa4d20f312e`;
   let aqiRespomse = await fetch(urlAqi);
   let aqiData = await aqiRespomse.json();
   return aqiData;
