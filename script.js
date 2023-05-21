@@ -24,32 +24,39 @@ let fetchAQI = async (lat, lon) => {
 };
 
 fetchlanlon().then((data) => {
-  fetchWeather(data.city).then((el) => {
-    document.getElementById("weather_city").innerHTML = el.name;
-    document.getElementById("weather_decription").innerHTML =
-      el.weather[0].description;
-    document.getElementById(
-      "weather_icon"
-    ).src = `https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`;
-    document.getElementById("temperature").innerHTML = Math.round(el.main.temp);
-
-    fetchAQI(el.coord.lat, el.coord.lon).then((data) => {
-      if (data.list[0].main.aqi == 1) {
-        document.querySelector(".meter_indicator").style.transform =
-          "rotate(-105deg)";
-      } else if (data.list[0].main.aqi == 2) {
-        document.querySelector(".meter_indicator").style.transform =
-          "rotate(-52deg)";
-      } else if (data.list[0].main.aqi == 3) {
-        document.querySelector(".meter_indicator").style.transform =
-          "rotate(0deg)";
-      } else if (data.list[0].main.aqi == 4) {
-        document.querySelector(".meter_indicator").style.transform =
-          "rotate(52deg)";
-      } else if (data.list[0].main.aqi == 5) {
-        document.querySelector(".meter_indicator").style.transform =
-          "rotate(105deg)";
-      }
+  setTimeout(() => {
+    fetchWeather(data.city).then((el) => {
+      document.getElementById("weather_city").innerHTML = el.name;
+      document.getElementById("weather_decription").innerHTML =
+        el.weather[0].description;
+      document.getElementById(
+        "weather_icon"
+      ).src = `https://openweathermap.org/img/wn/${el.weather[0].icon}@2x.png`;
+      document.getElementById("temperature").innerHTML = Math.round(
+        el.main.temp
+      );
+      document.querySelector(".loader").style.display = "none";
+      document.querySelector(".weatherdata_container").style.display = "block";
+      setTimeout(() => {
+        fetchAQI(el.coord.lat, el.coord.lon).then((data) => {
+          if (data.list[0].main.aqi == 1) {
+            document.querySelector(".meter_indicator").style.transform =
+              "rotate(-105deg)";
+          } else if (data.list[0].main.aqi == 2) {
+            document.querySelector(".meter_indicator").style.transform =
+              "rotate(-52deg)";
+          } else if (data.list[0].main.aqi == 3) {
+            document.querySelector(".meter_indicator").style.transform =
+              "rotate(0deg)";
+          } else if (data.list[0].main.aqi == 4) {
+            document.querySelector(".meter_indicator").style.transform =
+              "rotate(52deg)";
+          } else if (data.list[0].main.aqi == 5) {
+            document.querySelector(".meter_indicator").style.transform =
+              "rotate(105deg)";
+          }
+        });
+      }, 200);
     });
-  });
+  }, 1500);
 });
