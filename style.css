@@ -29,8 +29,8 @@
   align-items: center;
 }
 .logo_container img {
-  width: 65px;
-  height: 65px;
+  width: 60px;
+  height: 60px;
 }
 .logo_container span {
   font-size: 1.2rem;
@@ -46,4 +46,14 @@
 }
 .menu_bar ul li {
   font-size: 1.2rem;
+}
+
+/* weather data container */
+.weatherdata_container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+.temperature_box {
+  font-size: 4rem;
 }
