@@ -35,18 +35,6 @@
 .logo_container span {
   font-size: 1.2rem;
 }
-/* Menubar Styling */
-.menu_bar {
-  flex-basis: 30%;
-}
-.menu_bar ul {
-  display: flex;
-  justify-content: space-evenly;
-  list-style: none;
-}
-.menu_bar ul li {
-  font-size: 1.2rem;
-}
 
 /* weather data container */
 .weatherdata_container {
@@ -56,4 +44,52 @@
 }
 .temperature_box {
   font-size: 4rem;
+}
+#weather_decription {
+  text-transform: capitalize;
+}
+.overlap {
+  width: 300px;
+  height: 300px;
+  position: relative;
+  margin: 0 auto;
+}
+.overlap h3 {
+  position: absolute;
+  top: 228px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-transform: uppercase;
+}
+.earth {
+  width: 100%;
+  height: 100%;
+}
+.gauge_meter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.meter_indicator {
+  position: absolute;
+  top: 76px;
+  left: 126px;
+  width: 50px;
+  height: 85px;
+  background: #5c5e68;
+  transform-origin: bottom;
+  clip-path: polygon(50% 0%, 30% 100%, 70% 100%);
+  border-radius: 5px;
+  transition: transform 0.8s ease-in-out;
+}
+.meter_center_circle {
+  position: absolute;
+  top: 130px;
+  left: 120px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #5c5e68;
 }
